@@ -387,7 +387,7 @@ module.exports = function (grunt) {
            tunnel-identifier: process.env.TRAVIS_JOB_NUMBER,
            build: process.env.TRAVIS_BUILD_NUMBER
            ,*/
-       baseUrl: process.env.SN_BASE_URL//'http://localhost:<%= connect.test.options.port %>'
+       baseUrl: 'http://localhost:<%= connect.test.options.port %>'
          }
        }
      }
@@ -447,7 +447,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereloadnoopen',
-      'protractor:prod'
+      'protractor:saucelabs'
     ]);
 
   grunt.loadNpmTasks('grunt-protractor-runner');
