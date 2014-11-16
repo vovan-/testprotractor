@@ -381,9 +381,9 @@ module.exports = function (grunt) {
      prod: {},
      saucelabs: {
        options: {
-         args: {
+         args: {/*
            sauceUser: process.env.SAUCE_USERNAME,
-           sauceKey: process.env.SAUCE_ACCESS_KEY/*,
+           sauceKey: process.env.SAUCE_ACCESS_KEY,
            tunnel-identifier: process.env.TRAVIS_JOB_NUMBER,
            build: process.env.TRAVIS_BUILD_NUMBER*/
            ,
@@ -447,7 +447,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereloadnoopen',
-      'protractor:prod'
+      'protractor:saucelabs'
     ]);
 
   grunt.loadNpmTasks('grunt-protractor-runner');
