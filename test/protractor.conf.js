@@ -11,6 +11,8 @@ exports.config = {
     'build': process.env.TRAVIS_BUILD_NUMBER,
     'name': 'Protractor Tests'
   },
+  sauceUser: 'vovan-',
+  sauceKey: 'a3f0bcdc-778a-4402-89ea-981552518106',
 //  chromeOnly: true,
 //  directConnect:true,
   /*baseUrl: 'http://localhost:9000/',*/
