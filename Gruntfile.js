@@ -385,9 +385,9 @@ module.exports = function (grunt) {
            sauceUser: process.env.SAUCE_USERNAME,
            sauceKey: process.env.SAUCE_ACCESS_KEY,
            tunnel-identifier: process.env.TRAVIS_JOB_NUMBER,
-           build: process.env.TRAVIS_BUILD_NUMBER*/
-           ,
-       baseUrl: 'http://localhost:<%= connect.test.options.port %>'
+           build: process.env.TRAVIS_BUILD_NUMBER
+           ,*/
+       baseUrl: process.env.SN_BASE_URL//'http://localhost:<%= connect.test.options.port %>'
          }
        }
      }
@@ -447,7 +447,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereloadnoopen',
-      'protractor:saucelabs'
+      'protractor:prod'
     ]);
 
   grunt.loadNpmTasks('grunt-protractor-runner');
