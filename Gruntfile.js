@@ -420,8 +420,8 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-   // 'karma',
-    'protractor:prod'
+    'karma',
+    'protractor:test'
   ]);
 
   grunt.registerTask('build', [
@@ -447,7 +447,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereloadnoopen',
-      'protractor:saucelabs'
+      'protractor:test'
     ]);
 
   grunt.loadNpmTasks('grunt-protractor-runner');

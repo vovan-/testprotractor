@@ -1,4 +1,4 @@
-exports.config = {
+var config = {
   allScriptsTimeout: 11000,
 
   specs: [
@@ -7,12 +7,13 @@ exports.config = {
 
   capabilities: {
     'browserName': 'chrome',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Protractor Tests'
+     "chromeOptions": {
+      binary: 'C:/Users/Vovan.Lenovo-PC/AppData/Local/Google/Chrome SxS/Application/chrome.exe',
+      args: [],
+      extensions: [],
+    }
   },
-  sauceUser: 'vovan-',
-  sauceKey: 'a3f0bcdc-778a-4402-89ea-981552518106',
+
 //  chromeOnly: true,
 //  directConnect:true,
   baseUrl: 'http://localhost:9000/',/**/
@@ -26,3 +27,16 @@ exports.config = {
     defaultTimeoutInterval: 30000
   }
 };
+
+if (process.env.TRAVIS_BUILD_NUMBER) {
+    config.sauceUser = 'vovan-',
+    config.sauceKey = 'a3f0bcdc-778a-4402-89ea-981552518106',
+    config.capabilities = {
+      'browserName': 'chrome',
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER,
+      'name': 'App Tests'
+    };
+}
+
+exports.config = config;
