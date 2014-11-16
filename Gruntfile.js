@@ -387,7 +387,7 @@ module.exports = function (grunt) {
            tunnel-identifier: process.env.TRAVIS_JOB_NUMBER,
            build: process.env.TRAVIS_BUILD_NUMBER*/
            ,
-           baseUrl: 'http://localhost:<%= connect.test.options.port %>'
+       baseUrl: 'http://localhost:<%= connect.test.options.port %>'
          }
        }
      }
@@ -421,7 +421,7 @@ module.exports = function (grunt) {
     'autoprefixer',
     'connect:test',
     'karma',
-    'protractor:test'
+    'protractor:prod'
   ]);
 
   grunt.registerTask('build', [
