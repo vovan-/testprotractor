@@ -363,23 +363,35 @@ module.exports = function (grunt) {
       }
     },
 
-     protractor: {
+   protractor: {
+     options: {
+       configFile: "test/protractor.conf.js", // Default config file
+       keepAlive: true, // If false, the grunt process stops when the test fails.
+       noColor: false,
+       args: {
+       }
+     },
+     test: {
        options: {
-         configFile: "test/protractor.conf.js", // Default config file
-         keepAlive: true, // If false, the grunt process stops when the test fails.
-         noColor: false,
          args: {
+           baseUrl: 'http://localhost:<%= connect.test.options.port %>'
          }
-       },
-       test: {
-         options: {
-           args: {
-             baseUrl: 'http://localhost:<%= connect.test.options.port %>'
-           }
+       }
+     },
+     prod: {},
+     saucelabs: {
+       options: {
+         args: {
+           sauceUser: process.env.SAUCE_USERNAME,
+           sauceKey: process.env.SAUCE_ACCESS_KEY/*,
+           tunnel-identifier: process.env.TRAVIS_JOB_NUMBER,
+           build: process.env.TRAVIS_BUILD_NUMBER*/
+           ,
+           baseUrl: 'http://localhost:<%= connect.test.options.port %>'
          }
-       },
-       prod: {}
+       }
      }
+   }
   });
 
 
@@ -409,7 +421,7 @@ module.exports = function (grunt) {
     'autoprefixer',
     'connect:test',
     'karma',
-    'protractor:test'
+    'protractor:saucelabs'
   ]);
 
   grunt.registerTask('build', [
@@ -437,6 +449,8 @@ module.exports = function (grunt) {
       'connect:livereloadnoopen',
       'protractor:prod'
     ]);
+
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   grunt.registerTask('default', [
     'newer:jshint',
