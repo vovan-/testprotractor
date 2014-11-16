@@ -15,7 +15,7 @@ exports.config = {
   sauceKey: 'a3f0bcdc-778a-4402-89ea-981552518106',
 //  chromeOnly: true,
 //  directConnect:true,
-  /*baseUrl: 'http://localhost:9000/',*/
+  baseUrl: 'http://localhost:9001/',/**/
 //  baseUrl: 'http://localhost:' + (process.env.HTTP_PORT || '9000'),
 //  seleniumAddress: 'http://localhost:4444/wd/hub',
 seleniumAddress: 'http://localhost:4445/wd/hub',
