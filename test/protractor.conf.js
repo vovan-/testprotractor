@@ -18,6 +18,7 @@ exports.config = {
   /*baseUrl: 'http://localhost:9000/',*/
 //  baseUrl: 'http://localhost:' + (process.env.HTTP_PORT || '9000'),
 //  seleniumAddress: 'http://localhost:4444/wd/hub',
+seleniumAddress: 'http://localhost:4445/wd/hub',
 
   framework: 'jasmine',
 
